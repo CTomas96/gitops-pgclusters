@@ -1,0 +1,30 @@
+{{- range $index, $cluster := .Values.clusters}}
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: {{$cluster.name}}
+  namespace: default
+spec:
+  description: {{$cluster.description}}
+  imageName: {{$cluster.imageName}}
+  instances: {{$cluster.instances}}
+  startDelay: {{$cluster.startDelay}}
+  stopDelay: {{$cluster.stopDelay}}
+  primaryUpdateStrategy: {{$cluster.primaryUpdateStrategy}}
+
+  bootstrap:
+    initdb:
+      database: {{$cluster.bootstrap.initdb.database}}
+      owner: {{$cluster.bootstrap.initdb.owner}}
+      secret:
+        name: {{$cluster.bootstrap.initdb.secret.name}}
+  
+  superuserSecret:
+    name: {{$cluster.superuserSecret.name}}
+
+  storage:
+    size: {{$cluster.size}}
+  monitoring:
+    enablePodMonitor: {{$cluster.enablePodMonitor}}
+{{- end }}

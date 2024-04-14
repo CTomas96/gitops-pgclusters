@@ -1,0 +1,35 @@
+clusters:
+  - name: cluster1
+    description: "Cluster 1"
+    imageName: ghcr.io/cloudnative-pg/postgresql:15.1
+    instances: 3
+    startDelay: 10
+    stopDelay: 10
+    primaryUpdateStrategy: "rolling"
+    bootstrap:
+      initdb:
+        database: "postgres"
+        owner: "postgres"
+        secret:
+          name: "cluster1-bootstrap-secret"
+    superuserSecret:
+      name: "cluster1-superuser-secret"
+    size: "1Gi"
+    enablePodMonitor: true
+  - name: cluster2
+    description: "Cluster 2"
+    imageName: ghcr.io/cloudnative-pg/postgresql:15.1
+    instances: 3
+    startDelay: 10
+    stopDelay: 10
+    primaryUpdateStrategy: "rolling"
+    bootstrap:
+      initdb:
+        database: "postgres"
+        owner: "postgres"
+        secret:
+          name: "cluster2-bootstrap-secret"
+    superuserSecret:
+      name: "cluster2-superuser-secret"
+    size: "1Gi"
+    enablePodMonitor: true
