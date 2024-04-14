@@ -5,7 +5,7 @@ clusters:
     instances: 3
     startDelay: 10
     stopDelay: 10
-    primaryUpdateStrategy: "rolling"
+    primaryUpdateStrategy: unsupervised
     bootstrap:
       initdb:
         database: "postgres"
@@ -22,7 +22,7 @@ clusters:
     instances: 3
     startDelay: 10
     stopDelay: 10
-    primaryUpdateStrategy: "rolling"
+    primaryUpdateStrategy: unsupervised
     bootstrap:
       initdb:
         database: "postgres"
