@@ -6,26 +6,26 @@ metadata:
   name: {{$cluster.name}}
   namespace: default
 spec:
-    generators:
-    - git:
-        repoURL: https://github.com/azaurus1/gitops-pgclusters.git
-        revision: HEAD
-        files:
-        - path: pg-clusters/{{ $cluster.name }}/cluster.yaml
-    template:
-      metadata:
-        name: '{{`{{path}}`}}'
-      spec:
-        project: default
-          source:
-              repoURL: https://github.com/azaurus1/gitops-pgclusters.git
-              targetRevision: HEAD
-              path: '{{`{{path}}`}}'
-          destination:
-              name: in-cluster
-              namespace: default
-          syncPolicy:
-              syncOptions:
-              - CreateNamespace=true
-              - ApplyOutOfSyncOnly=true
-{{- end}}
+  generators:
+  - git:
+      repoURL: https://github.com/azaurus1/gitops-pgclusters
+      revision: HEAD
+      files:
+      - path: pg-clusters/{{$cluster.name}}/cluster.yaml
+  template:
+    metadata:
+      name: '{{`{{path.basename}}`}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/azaurus1/gitops-pgclusters
+        targetRevision: HEAD
+        path: '{{`{{path}}`}}'
+      destination:
+        name: in-cluster
+        namespace: default #'{{`{{path.basename}}`}}'
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
+        - ApplyOutOfSyncOnly=true
+{{- end }}
