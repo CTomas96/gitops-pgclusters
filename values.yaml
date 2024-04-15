@@ -19,3 +19,4 @@
 generatorClusters:
   - name: generator-cluster1
   - name: generator-cluster2
+  - name: generator-cluster3
