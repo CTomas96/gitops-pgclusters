@@ -10,8 +10,8 @@ spec:
     - git:
         repoURL: https://github.com/azaurus1/gitops-pgclusters.git
         revision: HEAD
-        directories:
-        - path: pg-clusters/{{ $cluster.name }}/*
+        files:
+        - path: pg-clusters/{{ $cluster.name }}/cluster.yaml
     template:
       metadata:
         name: '{{`{{path}}`}}'
