@@ -17,7 +17,7 @@
 #     size: "1Gi"
 #     enablePodMonitor: true
 generatorClusters:
-  - name: generator-cluster1
-  - name: generator-cluster2
-  - name: generator-cluster3
-  - name: generator-cluster4
+  - name: cluster1
+  - name: cluster2
+  - name: cluster3
+  - name: cluster4
