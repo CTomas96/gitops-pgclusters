@@ -16,20 +16,20 @@ clusters:
       name: cluster-example-superuser
     size: "1Gi"
     enablePodMonitor: true
-  - name: cluster2
-    description: "Cluster 2"
-    imageName: ghcr.io/cloudnative-pg/postgresql:15.1
-    instances: 3
-    startDelay: 10
-    stopDelay: 10
-    primaryUpdateStrategy: unsupervised
-    bootstrap:
-      initdb:
-        database: postgres
-        owner: app
-        secret:
-          name: cluster-example-app-user
-    superuserSecret:
-      name: cluster-example-superuser
-    size: "1Gi"
-    enablePodMonitor: true
+  # - name: cluster2
+  #   description: "Cluster 2"
+  #   imageName: ghcr.io/cloudnative-pg/postgresql:15.1
+  #   instances: 3
+  #   startDelay: 10
+  #   stopDelay: 10
+  #   primaryUpdateStrategy: unsupervised
+  #   bootstrap:
+  #     initdb:
+  #       database: postgres
+  #       owner: app
+  #       secret:
+  #         name: cluster-example-app-user
+  #   superuserSecret:
+  #     name: cluster-example-superuser
+  #   size: "1Gi"
+  #   enablePodMonitor: true
