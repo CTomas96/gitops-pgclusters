@@ -18,3 +18,4 @@
 #     enablePodMonitor: true
 generatorClusters:
   - name: generator-cluster1
+  - name: generator-cluster2
