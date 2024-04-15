@@ -1,0 +1,31 @@
+{{- range $index, $cluster := .Values.generatorClusters}}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: {{$cluster.name}}
+  namespace: default
+spec:
+    generators:
+    - git:
+        repoURL: https://github.com/azaurus1/gitops-pgclusters.git
+        revision: HEAD
+        directories:
+        - path: pg-clusters/{{ $cluster.name }}/*
+    template:
+      metadata:
+        name: '{{`{{path}}`}}'
+        spec:
+          project: default
+            source:
+                repoURL: https://github.com/azaurus1/gitops-pgclusters.git
+                targetRevision: HEAD
+                path: '{{`{{path}}`}}'
+            destination:
+                name: in-cluster
+                namespace: default
+            syncPolicy:
+                syncOptions:
+                - CreateNamespace=true
+                - ApplyOutOfSyncOnly=true
+              
