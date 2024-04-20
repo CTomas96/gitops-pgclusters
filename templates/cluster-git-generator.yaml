@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/azaurus1/gitops-pgclusters
     targetRevision: HEAD
-    path: pg-clusters/{{$cluster.name}}/cluster.yaml
+    path: pg-clusters/{{$cluster.name}}
   destination:
     name: in-cluster
     namespace: default
