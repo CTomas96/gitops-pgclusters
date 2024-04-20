@@ -16,8 +16,8 @@
 #       name: cluster-example-superuser
 #     size: "1Gi"
 #     enablePodMonitor: true
-# generatorClusters:
-#   - name: cluster1
-#   - name: cluster2
-#   - name: cluster3
-#   - name: cluster4
+generatorClusters:
+  - name: cluster1
+  - name: cluster2
+  - name: cluster3
+  - name: cluster4
