@@ -1,7 +1,7 @@
 {{- range $index, $cluster := .Values.generatorClusters}}
 ---
 apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
+kind: Application
 metadata:
   name: {{$cluster.name}}
   namespace: default
